@@ -12,6 +12,19 @@
         width: 150px;
         height: 150px;
         align-items: center;
+        user-select: none;
+        
+
+       
+        .section-img{
+            user-select: none;
+            margin: 0 auto;
+            border-radius: 15px;
+            width: 140px;
+            height: 140px;
+            
+        }
     }
+    
 
 }

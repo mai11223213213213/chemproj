@@ -7,7 +7,7 @@
     align-items: center;
     gap: 10px;
     .option-box{
-        
+        user-select: none;
         display: flex;
         background-color: gray;
         border-radius: 15px;
@@ -17,6 +17,7 @@
 
        
         .option-img{
+            user-select: none;
             margin: 0 auto;
             border-radius: 15px;
             width: 140px;

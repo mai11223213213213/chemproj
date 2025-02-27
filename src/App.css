@@ -89,6 +89,10 @@ select {
   gap: 10px;
 }
 .option .option-box {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   display: flex;
   background-color: gray;
   border-radius: 15px;
@@ -97,6 +101,10 @@ select {
   align-items: center;
 }
 .option .option-box .option-img {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   margin: 0 auto;
   border-radius: 15px;
   width: 140px;
@@ -117,4 +125,25 @@ select {
   width: 150px;
   height: 150px;
   align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.section .section-box .section-img {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin: 0 auto;
+  border-radius: 15px;
+  width: 140px;
+  height: 140px;
+}
+
+.body {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }/*# sourceMappingURL=App.css.map */
