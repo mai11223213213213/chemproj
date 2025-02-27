@@ -1,38 +1,120 @@
-.App {
-  text-align: center;
+@charset "UTF-8";
+/* NULL CSS */
+/* Вказуємо box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Прибираємо внутрішні відступи */
+ul[class],
+ol[class] {
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Прибираємо зовнішні відступи */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
 }
 
-.App-header {
-  background-color: #282c34;
+/* Виставляємо основні налаштування за замовчуванням для body */
+body {
   min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Видаляємо стандартну стилізацію для всіх ul і il, у яких є атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Елементи a, у яких немає класу, скидаємо до дефолтних стилів */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Спрощуємо роботу із зображеннями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Вказуємо зрозумілу періодичність у потоці даних у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Успадковуємо шрифти для інпутів і кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Видаляємо всі анімації та переходи для людей, які вважають за краще їх не використовувати */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+.option {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  gap: 10px;
+}
+.option .option-box {
+  display: flex;
+  background-color: gray;
+  border-radius: 15px;
+  width: 150px;
+  height: 150px;
+  align-items: center;
+}
+.option .option-box .option-img {
+  margin: 0 auto;
+  border-radius: 15px;
+  width: 140px;
+  height: 140px;
 }
 
-.App-link {
-  color: #61dafb;
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.section .section-box {
+  display: flex;
+  border: 4px gray solid;
+  border-radius: 15px;
+  width: 150px;
+  height: 150px;
+  align-items: center;
+}/*# sourceMappingURL=App.css.map */

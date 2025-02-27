@@ -1,0 +1,30 @@
+
+.option{
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    .option-box{
+        
+        display: flex;
+        background-color: gray;
+        border-radius: 15px;
+        width: 150px;
+        height: 150px;
+        align-items: center;
+
+       
+        .option-img{
+            margin: 0 auto;
+            border-radius: 15px;
+            width: 140px;
+            height: 140px;
+            
+        }
+    
+
+}
+
+}

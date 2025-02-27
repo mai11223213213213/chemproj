@@ -1,0 +1,17 @@
+.section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 10px;
+    .section-box{
+        
+        display: flex;
+        border: 4px gray solid;
+        border-radius: 15px;
+        width: 150px;
+        height: 150px;
+        align-items: center;
+    }
+
+}
