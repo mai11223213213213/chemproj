@@ -1,26 +1,27 @@
 import React from 'react';
 
 const Section = ({ sections, onDrop, onReturn }) => {
+
   return (
-    <div className="section">
+    <div className='section'>
       {sections.map((item, index) => (
         <div
           key={index}
-          className="section-box"
-          onDrop={() => onDrop(index)}
+          className='section-box'
+          onClick={() => onDrop(index)}
           onDragOver={(e) => e.preventDefault()}
         >
-          {item ? (
+          {item && (
             <img
               src={item.src}
-              alt="Img"
-              className="section-img"
-              onClick={() => onReturn(index)}
+              alt='molecule-part'
+              className='section-img'
+              onClick={(e) => {
+                e.stopPropagation();
+                onReturn(index);
+              }}
             />
-           ) : ""//(
-          //   <span className="placeholder">Drop here</span>
-          // )
-        }
+          )}
         </div>
       ))}
     </div>
