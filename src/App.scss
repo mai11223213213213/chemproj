@@ -3,8 +3,13 @@
 @import "./styles/section";
 @import "./styles/header";
 @import "./styles/forphone";
+@import "./styles/start";
 body{
     background: rgb(204,107,176);
 background: linear-gradient(180deg, rgba(204,107,176,1) 0%, rgba(244,159,222,1) 35%, rgba(194,121,183,1) 100%);
 padding: 0 10px 0 10px;
+}
+
+.cur-part{
+    display: none!important;
 }

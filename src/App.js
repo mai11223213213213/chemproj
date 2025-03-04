@@ -12,6 +12,8 @@ import img7 from "./assets/img/wrong_4.png";
 import img8 from "./assets/img/wrong_5.png";
 import img9 from "./assets/img/wrong_6.png";
 import Header from './components/Header';
+import Start from './components/Start';
+import End from './components/End';
 
 const initialOptions = [{ id: 1, src: img1 },
 { id: 2, src: img2 },
@@ -29,19 +31,44 @@ const App = () => {
   const [options, setOptions] = useState(initialOptions);
   const [selectedItem, setSelectedItem] = useState(null);
   const [time, setTime] = useState(0);
+  const [intervalId, setIntervalId] = useState(null);
+  
+  
 
   useEffect(() => {
     if (sections.every((item) => item !== null)) {
       const correctCount = sections.reduce((count, item, i) => item?.id === i + 1 ? count + 1 : count, 0);
       setRightcount(correctCount);
       console.log(correctCount);
+      if(correctCount == 3){
+        EndGame()
+      }
     }
   }, [sections]);
-  useEffect(()=>{
-    const interval = setInterval(()=>{setTime((prev)=>prev+1)}, 1000)
-    return()=>clearInterval(interval)
+  
+  const StartGame = () => {
+    const m_start = document.querySelector('.m-start');
+    const main = document.querySelector('.main');
+    const m_end = document.querySelector('.m-end');
+    const id = setInterval(()=>{setTime((prev)=>prev+1)}, 1000)
+    setIntervalId(id);
+    
+    
 
-  }, []);
+    m_start.classList.toggle("cur-part");
+    main.classList.toggle("cur-part");
+  }
+  const EndGame = () =>{
+      const m_start = document.querySelector('.m-start');
+      const main = document.querySelector('.main');
+      const m_end = document.querySelector('.m-end');
+      clearInterval(intervalId)
+      
+      main.classList.toggle("cur-part");
+      m_end.classList.toggle("cur-part");
+
+
+  }
 
   const handleSelect = (item) => {
     setSelectedItem(item);
@@ -80,9 +107,17 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header right={rightcount} currtime={time}/>
-      <Section sections={sections} onDrop={handleDrop} onReturn={handleReturn} />
-      <Option options={options} onSelect={handleSelect} />
+      <div className="m-start">
+          <Start start={StartGame}/>
+      </div>
+      <div className="main cur-part">
+        <Header right={rightcount} currtime={time}/>
+        <Section sections={sections} onDrop={handleDrop} onReturn={handleReturn} />
+        <Option options={options} onSelect={handleSelect} />
+      </div>
+      <div className="m-end cur-part">
+        <End time={time}/>
+      </div>
     </div>
   );
 };

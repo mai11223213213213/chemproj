@@ -1,0 +1,42 @@
+.start{
+    padding: 3px 2px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    text-align: center;
+    .start-txt{
+        padding: 3px 2px;
+        font-size: 18px;
+
+
+    }
+    .start-btn{
+        display: flex;
+        
+        background-color: purple;
+        margin: 0 auto;
+        width: 70px;
+        height: 30px;
+        color: rgb(224, 214, 214);
+        border: none;
+       
+        text-align: center;
+        align-items: center;
+        
+        
+
+
+    }
+
+}
+.end{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    .end-txt{
+        display: flex;
+        margin: 0 auto;
+        font-size: 20px;
+}
+}
