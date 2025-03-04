@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, use } from 'react';
 import './App.css';
 import Option from './components/Option';
 import Section from './components/Section';
@@ -11,6 +11,7 @@ import img6 from "./assets/img/wrong_3.png";
 import img7 from "./assets/img/wrong_4.png";
 import img8 from "./assets/img/wrong_5.png";
 import img9 from "./assets/img/wrong_6.png";
+import Header from './components/Header';
 
 const initialOptions = [{ id: 1, src: img1 },
 { id: 2, src: img2 },
@@ -24,9 +25,10 @@ const initialOptions = [{ id: 1, src: img1 },
 
 const App = () => {
   const [sections, setSections] = useState([null, null, null]);
-  const [rightcount, setRightcount] = useState(0);
+  const [rightcount, setRightcount] = useState(-1);
   const [options, setOptions] = useState(initialOptions);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [time, setTime] = useState(0);
 
   useEffect(() => {
     if (sections.every((item) => item !== null)) {
@@ -35,6 +37,11 @@ const App = () => {
       console.log(correctCount);
     }
   }, [sections]);
+  useEffect(()=>{
+    const interval = setInterval(()=>{setTime((prev)=>prev+1)}, 1000)
+    return()=>clearInterval(interval)
+
+  }, []);
 
   const handleSelect = (item) => {
     setSelectedItem(item);
@@ -73,6 +80,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <Header right={rightcount} currtime={time}/>
       <Section sections={sections} onDrop={handleDrop} onReturn={handleReturn} />
       <Option options={options} onSelect={handleSelect} />
     </div>
